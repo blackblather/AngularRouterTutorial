@@ -1,0 +1,11 @@
+<h2>HEROES</h2>
+<ul class="crises">
+  <li *ngFor="let crisis of crises"
+    (click)="onSelect(crisis)"
+    [class.selected]="crisis.id == selectedId">
+    <span class="badge">{{crisis.id}}</span> {{crisis.name}}
+    <a [routerLink]="['/crisis-center', crisis.id]">open</a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,8 @@
+<div *ngIf="crisis">
+  <h2>{{crisis.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{crisis.id}}</div>
+  <div>
+    <label for="crisis-name">Crisis name: {{ crisis.name }}</label>
+  </div>
+  <button (click)="gotoCrises(crisis.id)">Back</button>
+</div>
