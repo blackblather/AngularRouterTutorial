@@ -12,6 +12,7 @@ import { Crisis } from '../crisis';
 export class CrisisDetailComponent implements OnInit {
 
   @Input() crisis: Crisis | undefined;
+  editName: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class CrisisDetailComponent implements OnInit {
       })
     ).subscribe(crisis => {
       this.crisis = crisis;
+      this.editName = this.crisis?.name;
     });
   }
 
@@ -38,7 +40,7 @@ export class CrisisDetailComponent implements OnInit {
   }
 
   save() {
-    this.crisis!.name = "heyooo";
+    this.crisis!.name = this.editName ? this.editName : "";
     this.gotoCrises();
   }
 
