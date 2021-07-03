@@ -11,7 +11,7 @@ import { Crisis } from '../crisis';
 })
 export class CrisisDetailComponent implements OnInit {
 
-  @Input() crisis: Crisis | undefined;
+  crisis: Crisis | undefined;
   editName: string | undefined;
 
   constructor(
@@ -21,13 +21,10 @@ export class CrisisDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        return this.service.getCrisis(Number(params.get('id')!));
-      })
-    ).subscribe(crisis => {
+    this.route.data.subscribe(data => {
+      const crisis: Crisis = data.crisis;
+      this.editName = crisis.name;
       this.crisis = crisis;
-      this.editName = this.crisis?.name;
     });
   }
 
