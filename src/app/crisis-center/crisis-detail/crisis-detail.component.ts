@@ -28,7 +28,21 @@ export class CrisisDetailComponent implements OnInit {
       this.crisis = crisis;
     });
   }
-  gotoCrises(id: number) {
+
+  gotoCrisis(id: number) {
     this.router.navigate(['../', {'id': id, 'foo': 'bar'}], {relativeTo: this.route});
+  }
+
+  cancel() {
+    this.gotoCrises();
+  }
+
+  save() {
+    this.crisis!.name = "heyooo";
+    this.gotoCrises();
+  }
+
+  gotoCrises() {
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 }
