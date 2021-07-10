@@ -19,7 +19,7 @@ const appRoutes: Routes = [
     }
   },
   { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
-  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+  { path: '',   redirectTo: '/superheroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
