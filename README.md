@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
 ## Tutorial
-Go to  `https://angular.io/guide/router-tutorial-toh` to check the Angular Routing Tutorial.
+Go to  https://angular.io/guide/router-tutorial-toh to check the Angular Routing Tutorial.
 
 ## Development server
 
