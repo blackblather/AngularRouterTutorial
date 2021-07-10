@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { CrisisListComponent } from './crisis-center/crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
   { path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canLoad: [AuthGuard]
   },
   { path: 'crisis-center', component: CrisisListComponent },
   { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
