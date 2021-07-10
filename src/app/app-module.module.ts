@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { CrisisListComponent } from './crisis-center/crisis-list/crisis-list.component';
+import { PreloadAllModules } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const appRoutes: Routes = [
-  { path: 'admin',
+  { 
+    path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
     canLoad: [AuthGuard]
   },
-  { path: 'crisis-center', component: CrisisListComponent },
+  { 
+    path: 'crisis-center',
+    loadChildren: () => import('./crisis-center/crisis-center.module').then(m => m.CrisisCenterModule)
+  },
   { path: 'compose', component: ComposeMessageComponent, outlet: 'popup' },
   { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
@@ -21,6 +24,9 @@ const appRoutes: Routes = [
   imports: [
     RouterModule.forRoot(
       appRoutes,
+      {
+        preloadingStrategy: PreloadAllModules
+      }
     )
   ],
   exports: [
