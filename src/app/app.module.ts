@@ -8,7 +8,6 @@ import { HeroesModule } from './heroes/heroes.module';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthModule } from './auth/auth.module';
 
@@ -23,7 +22,6 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     BrowserModule,
     AuthModule,
-    AdminModule,
     FormsModule,
     BrowserAnimationsModule,
     CrisisCenterModule,
